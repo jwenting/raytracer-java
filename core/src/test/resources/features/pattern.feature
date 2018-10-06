@@ -17,14 +17,11 @@ Feature: pattern tests
     Then stripe colour at [0.9,0.0,1.0] is [1.0,1.0,1.0]
     Then stripe colour at [1.0,0.0,2.0] is [0.0,0.0,0.0]
     Then stripe colour at [-0.1,0.0,2.0] is [0.0,0.0,0.0]
-    Then stripe colour at [-1.0,0.0,0.0]is [0.0,0.0,0.0]
+    Then stripe colour at [-1.0,0.0,0.0] is [0.0,0.0,0.0]
     Then stripe colour at [-1.1,0.0,1.0] is [1.0,1.0,1.0]
 
   Scenario: Lighting with an applied pattern
-    Given: stripe pattern with colours [1.0,1.0,1.0] and [0.0,0.0,0.0] set to material
-    And material has ambient 1.0
-    And material has diffuse 0.0
-    And material has specular 0.0
+    Given: stripe pattern with colours [1.0,1.0,1.0] and [0.0,0.0,0.0] set to material with ambient 1.0 with diffuse 0.0 with specular 0.0 and camera at [0.0, 0.0, -1.0] and normal at [0.0, 0.0, -1.0]
     And camera at [0.0, 0.0, -1.0]
     And normal at [0.0, 0.0, -1.0]
     And light is point light at point[0.0, 0.0, -10.0] and colour[1.0, 1.0, 1.0]

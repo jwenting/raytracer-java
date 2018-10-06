@@ -6,8 +6,8 @@ public class LightSource {
     protected Colour intensity;
     protected Point position;
 
-    public LightSource(final Colour intensity, final Point position) {
-        this.intensity = intensity;
+    public LightSource(final Colour colour, final Point position) {
+        this.intensity = colour;
         this.position = position;
     }
 
