@@ -51,7 +51,7 @@ public abstract class AbstractShape<E extends Shape> implements Shape<E> {
         Vector worldSpaceNormal = worldSpacePoint.subtract(position);
         if (transformationMatrix != null) {
             MutationMatrix matrix = new MutationMatrix(transformationMatrix);
-            MutationMatrix inverse = (MutationMatrix) matrix.inverse();
+            MutationMatrix inverse = matrix.inverse();
             Point objectSpacePoint = inverse.multiply(worldSpacePoint);
             Vector objectSpaceNormal = objectSpacePoint.subtract(position);
             worldSpaceNormal = inverse.transpose().multiply(objectSpaceNormal);
@@ -72,5 +72,13 @@ public abstract class AbstractShape<E extends Shape> implements Shape<E> {
     @Override
     public MutationMatrix getTransformation() {
         return transformationMatrix;
+    }
+
+    public Point pointToPatternSpace(final Point point) {
+        MutationMatrix worldToObjectSpace = new MutationMatrix(getTransformation()).inverse();
+        Point objectSpace = new Point(point).transform(worldToObjectSpace);
+        MutationMatrix patternTransformation = new MutationMatrix(material.getPattern().getTransformation());
+        MutationMatrix worldToPatternSpace = patternTransformation.inverse();
+        return objectSpace.transform(worldToPatternSpace);
     }
 }

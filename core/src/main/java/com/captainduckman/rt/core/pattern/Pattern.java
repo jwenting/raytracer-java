@@ -1,5 +1,7 @@
 package com.captainduckman.rt.core.pattern;
 
+import com.captainduckman.math.AbstractMutationMatrix;
+import com.captainduckman.math.MutationMatrix;
 import com.captainduckman.math.Point;
 import com.captainduckman.rt.core.Colour;
 
@@ -15,4 +17,7 @@ public interface Pattern {
      */
     Colour colourAt(Point point);
 
+    void transform(MutationMatrix mutationMatrix);
+
+    AbstractMutationMatrix getTransformation();
 }

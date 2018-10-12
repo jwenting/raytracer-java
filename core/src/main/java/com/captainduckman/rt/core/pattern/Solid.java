@@ -1,5 +1,7 @@
 package com.captainduckman.rt.core.pattern;
 
+import com.captainduckman.math.AbstractMutationMatrix;
+import com.captainduckman.math.MutationMatrix;
 import com.captainduckman.math.Point;
 import com.captainduckman.rt.core.Colour;
 
@@ -14,6 +16,16 @@ public class Solid implements Pattern {
     @Override
     public Colour colourAt(final Point point) {
         return colour;
+    }
+
+    @Override
+    public void transform(final MutationMatrix mutationMatrix) {
+        // ignore, solid colours don't need transformation
+    }
+
+    @Override
+    public AbstractMutationMatrix getTransformation() {
+        return new MutationMatrix();
     }
 
     @Override

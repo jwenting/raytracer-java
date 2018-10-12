@@ -29,3 +29,25 @@ Feature: pattern tests
     Then colour is [1.0,1.0,1.0]
     When lighting at point [1.1,0.0,0.0]
     Then colour is [0.0,0.0,0.0]
+
+  Scenario: stripes with object transformation
+    Given a sphere with default dimensions
+    And the sphere is transformed using scaling[2.0,2.0,2.0]
+    And has a stripe patterns with colours [0.0,0.0,0.0] and [1.0,1.0,1.0]
+    When we get the colour at point [1.5,0.0,0.0]
+    Then colour is [0.0,0.0,0.0]
+
+  Scenario: stripes with pattern transformation
+    Given a sphere with default dimensions
+    And has a stripe patterns with colours [0.0,0.0,0.0] and [1.0,1.0,1.0]
+    And the pattern is transformed using scaling[2.0,2.0,2.0]
+    When we get the colour at point [1.5,0.0,0.0]
+    Then colour is [0.0,0.0,0.0]
+
+  Scenario: stripes with pattern and object transformation
+    Given a sphere with default dimensions
+    And the sphere is transformed using scaling[2.0,2.0,2.0]
+    And has a stripe patterns with colours [0.0,0.0,0.0] and [1.0,1.0,1.0]
+    And the pattern is transformed using translation[0.5,0.0,0.0]
+    When we get the colour at point [2.5,0.0,0.0]
+    Then colour is [0.0,0.0,0.0]
