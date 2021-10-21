@@ -68,7 +68,7 @@ public class Tracer2 {
         Canvas canvas = camera.render(world);
 
         PpmWriter ppmWriter = new PpmWriter(256);
-        ppmWriter.writePpmFile("d:/tmp/test7.ppm", canvas);
+        ppmWriter.writePpmFile("d:\\tmp\\test7.ppm", canvas);
 
     }
 }
