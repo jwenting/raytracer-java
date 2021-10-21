@@ -71,6 +71,6 @@ public class Tracer1 {
             }
         }
         PpmWriter ppmWriter = new PpmWriter(256);
-        ppmWriter.writePpmFile("d:/tmp/test5.ppm", canvas);
+        ppmWriter.writePpmFile("d:\\tmp\\test5.ppm", canvas);
     }
 }

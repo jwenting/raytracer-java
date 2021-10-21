@@ -28,7 +28,7 @@ public class Tracer3 {
         floorMaterial.setPattern(new Solid(new Colour(.4, 0.9, .9)));
         floorMaterial.setSpecular(0);
 
-        Shape floor = new Plane();
+        Shape<Plane> floor = new Plane();
         floor.setMaterial(floorMaterial);
 
         Sphere middle = new Sphere();
@@ -64,7 +64,7 @@ public class Tracer3 {
         Canvas canvas = camera.render(world);
 
         PpmWriter ppmWriter = new PpmWriter(256);
-        ppmWriter.writePpmFile("d:/tmp/test8.ppm", canvas);
+        ppmWriter.writePpmFile("d:\\tmp\\test8.ppm", canvas);
 
     }
 }

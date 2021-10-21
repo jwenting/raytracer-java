@@ -23,17 +23,17 @@ import static java.lang.Math.PI;
 public class Tracer2 {
     public static void main(String[] args) {
         World world = new World();
-        Shape floor = new Sphere();
+        Shape<Sphere> floor = new Sphere();
         floor.transform(new ScalingMatrix(10, .01, 10));
         floor.setMaterial(new Material());
         floor.getMaterial().setPattern(new Solid(new Colour(1, 0.9, .9)));
         floor.getMaterial().setSpecular(0);
         world.addObject(floor);
-        Shape leftWall = new Sphere();
+        Shape<Sphere> leftWall = new Sphere();
         leftWall.transform(new TranslationMatrix(0, 0, 5).cross(new RotationMatrixY(-PI / 4)).cross(new RotationMatrixX(HALF_PI)).cross(new ScalingMatrix(10, .01, 10)));
         leftWall.setMaterial(floor.getMaterial());
         world.addObject(leftWall);
-        Shape rightWall = new Sphere();
+        Shape<Sphere> rightWall = new Sphere();
         rightWall.transform(new TranslationMatrix(0, 0, 5).cross(new RotationMatrixY(PI / 4)).cross(new RotationMatrixX(HALF_PI)).cross(new ScalingMatrix(10, .01, 10)));
         rightWall.setMaterial(floor.getMaterial());
         world.addObject(rightWall);
